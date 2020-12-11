@@ -1,0 +1,15 @@
+body, #root, .ui.horizontal.segments.mynotes {
+    background-color: #444;
+    border-color: #444;
+}
+
+.ui.horizontal.segments.mynotes, .ui.horizontal.segments > .mynotes__segment {
+    border: none;
+    margin: 0;
+    box-shadow: none;
+}
+
+.ui.horizontal.segments.mynotes > .mynotes__menu {
+    flex: 0 0 auto;
+    margin-left: 0.25em;
+}
