@@ -1,12 +1,10 @@
-FROM node:14.15.1-alpine
-
+FROM node:lts-alpine
 WORKDIR /app
 
-COPY package.json /app
-RUN npm install
-
 COPY . /app
+
+RUN npm install
 RUN npm run build
 
-ENV PORT 9000
+ENV PORT 3000
 ENTRYPOINT ["node", "server.js"]
