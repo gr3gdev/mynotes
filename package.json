@@ -3,52 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "homepage": "./",
-  "main": "app.js",
   "keywords": [],
   "author": "",
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.19.0",
-    "express": "^4.17.1",
-    "mongoose": "^5.11.5"
-  },
-  "devDependencies": {
-    "@ckeditor/ckeditor5-build-classic": "^23.1.0",
-    "@ckeditor/ckeditor5-react": "^3.0.0",
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
-    "axios": "^0.21.0",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-scripts": "4.0.0",
-    "semantic-ui-css": "^2.4.1",
-    "semantic-ui-react": "^2.0.1",
-    "web-vitals": "^0.2.4"
+    "express": "^4.17.1"
   },
   "scripts": {
-    "start": "react-scripts build && node server.js",
-    "front": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "start": "node server.js"
   }
 }

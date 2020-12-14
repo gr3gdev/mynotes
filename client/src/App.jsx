@@ -1,13 +1,13 @@
 import './App.css'
 import React, { Component } from 'react'
-import { Button, Icon, Label, Menu, Message, Segment, Sidebar } from 'semantic-ui-react'
+import { Icon, Label, Menu, Message, Segment } from 'semantic-ui-react'
 
 import axios from 'axios'
 
 import Notes from './components/Notes'
 import TreeNotes from './components/TreeNotes'
 
-const port = process.env.PORT || 3000
+const port = 3000
 const url = `https://localhost:${port}/api/notes`
 
 export default class App extends Component {

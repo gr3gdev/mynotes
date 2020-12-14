@@ -9,7 +9,7 @@ app.use('/*', (req, res) => {
     const cert = req.connection.getPeerCertificate()
     if (req.client.authorized) {
         const path = req.params[0] ? req.params[0] : 'index.html'
-        res.sendFile(path, {root: './build'});
+        res.sendFile(path, {root: './public'});
     } else if (cert.subject) {
         res.status(403)
 		   .send(`Sorry ${cert.subject.CN}, certificates from ${cert.issuer.CN} are not welcome here.`)
