@@ -34,4 +34,4 @@ jobs:
           context: .
           file: ./Dockerfile_armv6
           push: true
-          tags: gr3gdev/mynotes:latest
+          tags: gr3gdev/mynotes:arm32v6
