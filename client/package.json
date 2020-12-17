@@ -1,6 +1,7 @@
 {
   "name": "mynotes-client",
-  "version": "0.1.0",
+  "version": "0.3.0",
+  "homepage": ".",
   "private": true,
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^24.0.0",
