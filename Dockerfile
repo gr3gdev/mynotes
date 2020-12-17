@@ -5,11 +5,12 @@ RUN npm install && npm run build
 
 FROM node:lts-alpine
 WORKDIR /app
-COPY --from=build_client /app/build /app/public
-COPY package.json /app
-COPY app.js /app
-COPY server.js /app
-COPY rest /app/rest
+COPY --from=build_client /app/build /app/client
+COPY server /app
 RUN npm install
+
+ENV MYNOTES_USERNAME user
+ENV MYNOTES_PASSWORD password
+ENV MYNOTES_JWT_SECRET secret_to_be_defined
 
 ENTRYPOINT ["node", "server.js"]

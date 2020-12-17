@@ -13,3 +13,8 @@ body, #root, .ui.horizontal.segments.mynotes {
     flex: 0 0 auto;
     margin-left: 0.25em;
 }
+
+.ui.form.mynotes__form {
+    width: 50%;
+    margin: auto;
+}
