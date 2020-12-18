@@ -1,5 +1,5 @@
 const signToken = require('../serverAuth.js').signToken
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 const usersData = require('../datas/users.js')
 
 module.exports = {
