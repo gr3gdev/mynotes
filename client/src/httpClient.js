@@ -1,18 +1,27 @@
 import axios from 'axios'
 import jwtDecode from 'jwt-decode'
 
+const path = process.env.MYNOTES_CONTEXT || 'mynotes'
+
+let url_notes = '/api/notes'
+let url_users = '/api/users'
+if (path.length > 0) {
+    url_notes = `/${path}${url_notes}`
+    url_users = `/${path}${url_users}`
+}
+
 // instantiate axios
 const httpClient = axios.create()
 
 httpClient.getNotes = function() {
-    return this({ method: 'get', url: '/api/notes' })
+    return this({ method: 'get', url: url_notes })
         .then((serverResponse) => {
             return serverResponse.data
         })
 }
 
 httpClient.saveNotes = function(notes) {
-    return this({ method: 'post', url: '/api/notes', data: notes })
+    return this({ method: 'post', url: url_notes, data: notes })
         .then((serverResponse) => {
 			if (serverResponse.status === 200) {
 				return true
@@ -40,7 +49,7 @@ httpClient.getCurrentUser = function() {
 }
 
 httpClient.logIn = function(credentials) {
-	return this({ method: 'post', url: '/api/users/authenticate', data: credentials })
+	return this({ method: 'post', url: `${url_users}/authenticate`, data: credentials })
 		.then((serverResponse) => {
 			const token = serverResponse.data.token
 			if (token) {

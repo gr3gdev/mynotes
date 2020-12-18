@@ -6,9 +6,12 @@ import './index.css'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 
+const path = process.env.MYNOTES_CONTEXT || 'mynotes'
+const basename = `/${path}`
+
 ReactDOM.render(
   <React.StrictMode>
-    <Router><App /></Router>
+    <Router basename={basename}><App /></Router>
   </React.StrictMode>,
   document.getElementById('root')
 )

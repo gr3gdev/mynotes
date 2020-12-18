@@ -14,6 +14,7 @@ export default class Home extends Component {
         edit: false,
         saved: false,
         error: null,
+        logout: false,
         currentUser: this.props.user
     }
     componentDidMount = (props) => {
@@ -146,6 +147,9 @@ export default class Home extends Component {
         link.click()
         document.body.removeChild(link)
     }
+    handleClickLogout = () => {
+        this.setState({ logout: true })
+    }
     sortNotes = (notes) => {
         if (notes) {
             const mapped = notes.map((e, i) => {
@@ -167,8 +171,10 @@ export default class Home extends Component {
     }
 
     render() {
-        const { active, currentUser, visible, saved, error } = this.state
-        if (!currentUser) {
+        const { active, currentUser, visible, saved, error, logout } = this.state
+        if (logout) {
+            return <Redirect to="/logout" />
+        } else if (!currentUser) {
             return <Redirect to="/login" />
         } else {
             const notes = this.sortNotes(this.state.notes)
@@ -183,26 +189,29 @@ export default class Home extends Component {
                             <Menu.Item onClick={this.handleClickViewMenu} tabIndex='1'>
                                 <Icon name={iconSidebar} />{ visible ? "Menu" : null }
                             </Menu.Item>
-                            <Menu.Item onClick={this.handleClickAddNote} tabIndex='2'>
+                            <Menu.Item onClick={this.handleClickLogout} tabIndex='2'>
+                                <Icon name='log out' />{ visible ? "Déconnexion" : null }
+                            </Menu.Item>
+                            <Menu.Item onClick={this.handleClickAddNote} tabIndex='3'>
                                 <Icon name='sticky note' />{ visible ? "Ajouter une note" : null }
                             </Menu.Item>
-                            <Menu.Item onClick={this.handleClickAddFolder} tabIndex='3'>
+                            <Menu.Item onClick={this.handleClickAddFolder} tabIndex='4'>
                                 <Icon name='folder' />{ visible ? "Ajouter un dossier" : null }
                             </Menu.Item>
-                            <Menu.Item onClick={this.handleClickImport} tabIndex='4'>
+                            <Menu.Item onClick={this.handleClickImport} tabIndex='5'>
                                 <Icon name='upload' />{ visible ? "Importer les notes" : null }
                             </Menu.Item>
-                            <Menu.Item onClick={this.handleClickExport} tabIndex='5'>
+                            <Menu.Item onClick={this.handleClickExport} tabIndex='6'>
                                 <Icon name='download' />{ visible ? "Exporter les notes" : null }
                             </Menu.Item>
-                            <Menu.Item onClick={this.handleClickRemove} disabled={!active} tabIndex='6'>
+                            <Menu.Item onClick={this.handleClickRemove} disabled={!active} tabIndex='7'>
                                 <Icon name='remove' />{ visible ? "Supprimer" : null }
                             </Menu.Item>
                         </Menu>
                         { visible ? 
                             <Segment compact>
                                 <Label ribbon color="green">Notes</Label>
-                                <TreeNotes notes={notes} active={active} onSelect={this.handleSelectNote} indexStart={7} />
+                                <TreeNotes notes={notes} active={active} onSelect={this.handleSelectNote} indexStart={8} />
                             </Segment>
                             : null
                         }

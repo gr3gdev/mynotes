@@ -1,17 +1,14 @@
 const fs = require('fs')
-const bcrypt = require('bcrypt-nodejs')
+const bcrypt = require('bcrypt')
 const file = 'users.json'
-let users = []
 
-generateHash = (password) => {
-	return bcrypt.hashSync(password, bcrypt.genSaltSync(8))
-}
+let users = []
 
 module.exports = {
     init: (callback) => {
         fs.readFile(file, (err, data) => {
             if (err) {
-                console.log('Aucun utilisateur')
+                console.error('Aucun utilisateur')
             }
             if (data) {
                 users = JSON.parse(data)
@@ -23,10 +20,17 @@ module.exports = {
         return users
     },
     add: (user, callback) => {
-        user.password = generateHash(user.password)
-        users.push(user)
-        fs.writeFile(file, JSON.stringify(users), (err) => {
-            callback(err, user)
+        console.log(`Add user : ${user.username}`)
+        bcrypt.hash(user.password, 8, (err, hash) => {
+            if (err) {
+                console.error(err)
+            } else {
+                user.password = hash
+                users.push(user)
+                fs.writeFile(file, JSON.stringify(users), (err) => {
+                    callback(err, user)
+                })
+            }
         })
     },
     findByName: (name) => {

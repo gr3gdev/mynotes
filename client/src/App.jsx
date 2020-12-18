@@ -28,7 +28,7 @@ export default class App extends Component {
                         return <Login {...props} onLoginSuccess={this.onLoginSuccess.bind(this)} />
                     }} />
                     <Route path="/logout" render={(props) => {
-                        return <Logout onLogOut={this.logOut.bind(this)} />
+                        return <Logout onLogOut={this.onLogOut.bind(this)} />
                     }} />
                     <Route path="/" render={(props) => {
                         return <Home user={currentUser} />
