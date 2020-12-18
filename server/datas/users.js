@@ -1,5 +1,5 @@
 const fs = require('fs')
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 const file = 'users.json'
 
 let users = []
@@ -21,16 +21,18 @@ module.exports = {
     },
     add: (user, callback) => {
         console.log(`Add user : ${user.username}`)
-        bcrypt.hash(user.password, 8, (err, hash) => {
-            if (err) {
-                console.error(err)
-            } else {
-                user.password = hash
-                users.push(user)
-                fs.writeFile(file, JSON.stringify(users), (err) => {
-                    callback(err, user)
-                })
-            }
+        bcrypt.genSalt(10, (err, salt) => {
+            bcrypt.hash(user.password, salt, (err, hash) => {
+                if (err) {
+                    console.error(err)
+                } else {
+                    user.password = hash
+                    users.push(user)
+                    fs.writeFile(file, JSON.stringify(users), (err) => {
+                        callback(err, user)
+                    })
+                }
+            })
         })
     },
     findByName: (name) => {
