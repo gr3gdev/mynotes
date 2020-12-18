@@ -1,5 +1,5 @@
 const fs = require('fs')
-const file = 'notes.json'
+const file = 'notes/notes.json'
 let notes = []
 
 module.exports = {
