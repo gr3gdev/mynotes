@@ -13,6 +13,7 @@ ENV MYNOTES_JWT_SECRET secret_to_be_defined
 WORKDIR /app
 COPY --from=build_client /app/build /app/client/${MYNOTES_CONTEXT}
 COPY server /app
+RUN mkdir /app/notes
 RUN npm install
 
 ENTRYPOINT ["node", "server.js"]
