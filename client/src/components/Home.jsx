@@ -190,7 +190,7 @@ export default class Home extends Component {
                                 <Icon name={iconSidebar} />{ visible ? "Menu" : null }
                             </Menu.Item>
                             <Menu.Item onClick={this.handleClickLogout} tabIndex='2'>
-                                <Icon name='log out' />{ visible ? "Déconnexion" : null }
+                                <Icon name='log out' />{ visible ? "Deconnexion" : null }
                             </Menu.Item>
                             <Menu.Item onClick={this.handleClickAddNote} tabIndex='3'>
                                 <Icon name='sticky note' />{ visible ? "Ajouter une note" : null }
