@@ -55,9 +55,12 @@ httpClient.logIn = function(credentials) {
 			if (token) {
 				// sets token as an included header for all subsequent api requests
 				this.defaults.headers.common.token = this.setToken(token)
-				return jwtDecode(token)
+				return {
+                    success: true,
+                    user: jwtDecode(token)
+                }
 			} else {
-				return false
+				return serverResponse.data
 			}
 		})
 }

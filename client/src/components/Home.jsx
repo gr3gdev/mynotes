@@ -187,25 +187,25 @@ export default class Home extends Component {
                     <Segment className="mynotes__menu mynotes__segment">
                         <Menu icon={!visible} compact vertical>
                             <Menu.Item onClick={this.handleClickViewMenu} tabIndex='1'>
-                                <Icon name={iconSidebar} />{ visible ? "Menu" : null }
+                                <Icon name={iconSidebar} />{ visible ? <label className="mynotes__menu-label">Menu</label> : null }
                             </Menu.Item>
                             <Menu.Item onClick={this.handleClickLogout} tabIndex='2'>
-                                <Icon name='log out' />{ visible ? "Deconnexion" : null }
+                                <Icon name='log out' />{ visible ? <label className="mynotes__menu-label">Déconnexion</label> : null }
                             </Menu.Item>
                             <Menu.Item onClick={this.handleClickAddNote} tabIndex='3'>
-                                <Icon name='sticky note' />{ visible ? "Ajouter une note" : null }
+                                <Icon name='sticky note' />{ visible ? <label className="mynotes__menu-label">Ajouter une note</label> : null }
                             </Menu.Item>
                             <Menu.Item onClick={this.handleClickAddFolder} tabIndex='4'>
-                                <Icon name='folder' />{ visible ? "Ajouter un dossier" : null }
+                                <Icon name='folder' />{ visible ? <label className="mynotes__menu-label">Ajouter un dossier</label> : null }
                             </Menu.Item>
                             <Menu.Item onClick={this.handleClickImport} tabIndex='5'>
-                                <Icon name='upload' />{ visible ? "Importer les notes" : null }
+                                <Icon name='upload' />{ visible ? <label className="mynotes__menu-label">Importer les notes</label> : null }
                             </Menu.Item>
                             <Menu.Item onClick={this.handleClickExport} tabIndex='6'>
-                                <Icon name='download' />{ visible ? "Exporter les notes" : null }
+                                <Icon name='download' />{ visible ? <label className="mynotes__menu-label">Exporter les notes</label> : null }
                             </Menu.Item>
                             <Menu.Item onClick={this.handleClickRemove} disabled={!active} tabIndex='7'>
-                                <Icon name='remove' />{ visible ? "Supprimer" : null }
+                                <Icon name='remove' />{ visible ? <label className="mynotes__menu-label">Supprimer</label> : null }
                             </Menu.Item>
                         </Menu>
                         { visible ? 

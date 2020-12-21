@@ -1,4 +1,4 @@
-const notesData = require('../datas/notes.js')
+const notesData = require('../datas/notes')
 
 module.exports = {
     list: (req, res) => {

@@ -1,12 +1,14 @@
 const fs = require('fs')
-const file = 'notes/notes.json'
+const logger = require('../logger')
+
+const file = 'data/notes.json'
 let notes = []
 
 module.exports = {
     init: (callback) => {
         fs.readFile(file, (err, data) => {
             if (err) {
-                console.log('Aucune note')
+                logger.info('Aucune note')
             }
             if (data) {
                 notes = JSON.parse(data)

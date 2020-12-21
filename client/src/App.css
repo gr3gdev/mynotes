@@ -18,3 +18,16 @@ body, #root, .ui.horizontal.segments.mynotes {
     width: 50%;
     margin: auto;
 }
+
+@media only screen and (max-width: 600px) {
+    .ui.segment.mynotes__menu.mynotes__segment div.ui.compact.vertical.menu {
+        display: inline-flex;
+        flex-direction: row;
+    }
+    .ui.segment.mynotes__menu.mynotes__segment div.ui.compact.vertical.menu a.item label.mynotes__menu-label {
+        display: none;
+    }
+    .ui.horizontal.raised.segments.mynotes {
+        display: block;
+    }
+}
